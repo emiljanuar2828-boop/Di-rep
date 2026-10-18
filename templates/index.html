@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f8f4">
+  <meta name="description" content="Wandle deine Handschrift in wenigen Schritten in einen installierbaren Schriftfont mit natürlichen Buchstabenvarianten um.">
+  <title>Federwerk — dein Schriftzug wird Schrift</title>
+  <script id="app-config" type="application/json">{{ {"characters": chars, "pageCount": page_count, "pageGroups": page_groups} | tojson }}</script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='app.css') }}">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="Federwerk Startseite"><span class="brand-mark" aria-hidden="true">f.</span><span>federwerk<span class="brand-period">.</span></span></a>
+    <div class="top-note"><span class="privacy-dot"></span> Dein Font. Deine Handschrift. Deine Daten.</div>
+    <a class="help-link" href="#how-it-works">So funktioniert’s <span aria-hidden="true">↘</span></a>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="eyebrow-line"></span> DEINE HANDSCHRIFT, NEU GESCHRIEBEN</div>
+        <h1 id="hero-title">Mach aus deiner<br>Handschrift <span>Schrift.</span></h1>
+        <p class="hero-subtitle">Ein paar Zeilen mit der Hand. Eine Schrift, die sich ganz nach dir anfühlt. Mit natürlichen Varianten für jeden Buchstaben.</p>
+        <a class="hero-action" href="#workflow">Meine Schrift gestalten <span aria-hidden="true">↓</span></a>
+        <div class="hero-trust"><span>✳</span> Kostenlos starten <span class="trust-divider">·</span> Export als TTF &amp; OTF</div>
+      </div>
+      <div class="hero-art" aria-label="Beispiel einer handschriftlichen Schrift">
+        <div class="art-card">
+          <div class="art-topline"><span>DEINE HANDSCHRIFT, DIGITAL.</span><span class="art-star">✳</span></div>
+          <div class="art-word">Hallo,<br>Welt<span class="art-period">.</span></div>
+          <div class="art-scribble" aria-hidden="true">~ ein bisschen mehr du ~</div>
+          <div class="art-footer"><span>FEDERWERK HANDSCHRIFT</span><span>NO. 001</span></div>
+          <span class="art-sticker">100%<br>deins</span>
+        </div>
+        <span class="art-doodle doodle-one" aria-hidden="true">✳</span><span class="art-doodle doodle-two" aria-hidden="true">↗</span>
+      </div>
+    </section>
+
+    <section id="workflow" class="workflow" aria-labelledby="workflow-title">
+      <div class="section-heading">
+        <div><div class="eyebrow"><span class="eyebrow-line"></span> DER WEG ZU DEINER SCHRIFT</div><h2 id="workflow-title">In vier Schritten ganz du.</h2></div>
+        <span class="step-count"><span id="step-count">01</span> <span class="muted">/ 04</span></span>
+      </div>
+      <nav class="stepper" aria-label="Fortschritt">
+        <button class="stepper-step active" data-step-target="1"><span class="step-number">01</span><span>Vorlage</span></button><span class="step-connector"></span>
+        <button class="stepper-step" data-step-target="2"><span class="step-number">02</span><span>Hochladen</span></button><span class="step-connector"></span>
+        <button class="stepper-step" data-step-target="3"><span class="step-number">03</span><span>Vorschau</span></button><span class="step-connector"></span>
+        <button class="stepper-step" data-step-target="4"><span class="step-number">04</span><span>Fertig</span></button>
+      </nav>
+
+      <div class="step-panel is-active" data-step="1" aria-labelledby="step-one-title">
+        <div class="panel-intro"><span class="panel-kicker">01 — ERST MAL AUFS PAPIER</span><h3 id="step-one-title">Deine Vorlage wartet.</h3><p>Lade die dreiseitige Schreibvorlage mit Umlauten, Ziffern und wichtigen Satzzeichen herunter und fülle sie in deinem eigenen Stil aus. Ganz ohne Schönschrift – gerade das macht deinen Font besonders.</p></div>
+        <div class="template-card">
+          <div class="paper-stack" aria-hidden="true"><div class="paper-sheet"><span class="paper-brand">f.</span><span class="paper-title">Meine<br>Handschrift</span><span class="paper-subtitle">ABCD · abcd<br>0123 · ?!@#</span><span class="paper-rule"></span></div></div>
+          <div class="template-details"><div class="template-meta"><span class="meta-icon">PDF</span><span>3 Seiten</span><span>·</span><span>Groß &amp; klein</span><span>·</span><span>Zahlen &amp; Zeichen</span></div><h4>Die Federwerk-Vorlage</h4><p>Platz für 101 Zeichen mit deutschen Umlauten und Satzzeichen – sorgfältig auf drei gut beschreibbare Seiten verteilt.</p><a class="button button-primary" href="/api/template.pdf" download><span aria-hidden="true">↓</span> Vorlage herunterladen</a></div>
+        </div>
+        <div class="tip-row"><span class="tip-icon">✳</span><p><strong>Ein Tipp fürs beste Ergebnis:</strong> Ein dunkler Stift auf weißem Papier, ein gut beleuchteter Scan oder ein gerade fotografiertes Blatt.</p></div>
+        <div class="panel-actions"><span class="subtle-note">Fülle so viele Varianten aus, wie sich natürlich anfühlen.</span><button class="button button-dark" data-go="2">Weiter zum Upload <span aria-hidden="true">→</span></button></div>
+      </div>
+
+      <div class="step-panel" data-step="2" aria-labelledby="step-two-title" hidden>
+        <div class="panel-intro"><span class="panel-kicker">02 — JETZT AB INS DIGITALE</span><h3 id="step-two-title">Lade deine Handschrift hoch.</h3><p>Fotografiere oder scanne alle drei ausgefüllten Seiten mit sichtbaren Eckmarkierungen. Ordne jedes Foto der passenden Vorlagenseite zu.</p></div>
+        <label id="drop-zone" class="drop-zone" for="file-input" tabindex="0">
+          <input id="file-input" type="file" accept="image/png,image/jpeg,image/webp,.png,.jpg,.jpeg,.webp" multiple hidden>
+          <span class="upload-icon" aria-hidden="true"><svg viewBox="0 0 48 48" width="48" height="48" fill="none"><rect x="7" y="9" width="34" height="29" rx="5" stroke="currentColor" stroke-width="1.7"/><circle cx="18" cy="19" r="3.5" stroke="currentColor" stroke-width="1.7"/><path d="m9 32 10-8 7 6 5-4 8 7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 2v12m-5-5 5-5 5 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <strong>Zieh deine Seiten hierher</strong><span class="drop-support">oder <span class="text-link">wähle Bilder aus</span> · PNG, JPG oder WebP · max. 18 MB pro Bild</span>
+        </label>
+        <div id="upload-list" class="upload-list" hidden></div>
+        <div id="upload-error" class="error-box" role="alert" hidden></div>
+        <div class="tip-row upload-tip"><span class="tip-icon">✳</span><p><strong>Alle drei Seiten.</strong> Halte alle vier Eckmarkierungen beim Fotografieren im Bild. Freie Variantenfelder dürfen leer bleiben; Buchstaben ohne Schriftprobe kannst du im Korrekturschritt direkt nachzeichnen.</p></div>
+        <div class="panel-actions"><button class="button button-quiet" data-go="1"><span aria-hidden="true">←</span> Zurück</button><button id="scan-button" class="button button-dark" disabled>Zeichen erkennen <span aria-hidden="true">↗</span></button></div>
+        <p id="scan-progress" class="scan-progress" aria-live="polite" hidden><span class="spinner"></span><span id="scan-message">Deine Handschrift wird gelesen …</span></p>
+      </div>
+
+      <div class="step-panel" data-step="3" aria-labelledby="step-three-title" hidden>
+        <div class="panel-intro panel-intro-inline"><div><span class="panel-kicker">03 — EIN LETZTER BLICK</span><h3 id="step-three-title">Das sieht schon nach dir aus.</h3><p>Prüfe die Zuordnung und korrigiere ein Zeichen, wenn nötig. Lege mehrere Proben desselben Buchstabens an – dein Font wechselt sie automatisch ab.</p></div><div class="recognition-badge"><span class="badge-number" id="recognized-count">0</span><span>Formen<br>gefunden</span></div></div>
+        <div id="review-warning" class="review-warning" role="status"></div>
+        <div class="review-toolbar"><div class="review-toolbar-heading"><div><span class="toolbar-title">DEINE ZEICHEN</span><span id="assignment-count" class="toolbar-count"></span></div><button id="open-redraw" class="button button-primary redraw-open" type="button">＋ Zeichen ergänzen</button></div><label class="search-control"><span aria-hidden="true">⌕</span><input id="glyph-search" type="search" placeholder="Zeichen suchen" aria-label="Zeichen suchen"></label></div>
+        <div id="glyph-grid" class="glyph-grid" aria-label="Erkannte Schriftzeichen"></div>
+        <div id="mapping-error" class="error-box" role="alert" hidden></div>
+        <div class="panel-actions review-actions"><button class="button button-quiet" data-go="2"><span aria-hidden="true">←</span> Seiten neu hochladen</button><button id="preview-button" class="button button-dark">Vorschau erstellen <span aria-hidden="true">↗</span></button></div>
+      </div>
+
+      <div class="step-panel" data-step="4" aria-labelledby="step-four-title" hidden>
+        <div class="panel-intro"><span class="panel-kicker">04 — HIER GEHT'S WEITER</span><h3 id="step-four-title">Dein Font ist bereit.</h3><p>Schreib etwas in dein Testfeld – die Schrift reagiert auf deine Korrekturen und auf jede einzelne Buchstabenvariante.</p></div>
+        <div class="font-preview-card"><div class="preview-card-top"><div><span class="preview-overline">DEINE PERSÖNLICHE SCHRIFT</span><h4>Federwerk Handschrift <span>Regular</span></h4></div><span class="ready-pill"><span></span> LIVE-VORSCHAU</span></div><label class="sr-only" for="preview-text">Vorschaubuchstaben</label><textarea id="preview-text" class="preview-text" spellcheck="false" maxlength="280" placeholder="Schreib hier etwas, das ganz nach dir klingt …">Hallo, Welt!\nJeder Tag ist ein guter Tag.</textarea><div class="preview-bottom"><span>Deine Schrift, direkt zum Ausprobieren.</span><span id="preview-character-count">0 / 280</span></div></div>
+        <div id="font-build-status" class="build-status" aria-live="polite"></div>
+        <div class="export-heading"><div><h4>Mitnehmen &amp; weiterschreiben.</h4><p>Für Textverarbeitung, Designprogramme und dein Betriebssystem.</p></div><span class="export-icon" aria-hidden="true">↘</span></div>
+        <div class="export-options"><div class="export-option"><div class="format-icon">TTF</div><div class="format-copy"><strong>TrueType</strong><span>Universell &amp; systemfreundlich</span></div><button class="download-button" data-export="ttf">.TTF herunterladen <span aria-hidden="true">↓</span></button></div><div class="export-option"><div class="format-icon format-icon-otf">OTF</div><div class="format-copy"><strong>OpenType</strong><span>Mit eingebetteten Alternativformen</span></div><button class="download-button" data-export="otf">.OTF herunterladen <span aria-hidden="true">↓</span></button></div></div>
+        <div class="install-note"><span class="tip-icon">✳</span><p><strong>Die Varianten wechseln von allein.</strong> Beim Tippen in geeigneten Apps wird die OpenType-Funktion „Contextual Alternates“ (calt) automatisch aktiv. Die Schrift kannst du über die Schriftverwaltung deines Systems installieren.</p></div>
+        <div id="export-error" class="error-box" role="alert" hidden></div>
+        <div class="panel-actions"><button class="button button-quiet" data-go="3"><span aria-hidden="true">←</span> Zeichen anpassen</button><button id="rebuild-button" class="button button-dark">Vorschau aktualisieren <span aria-hidden="true">↻</span></button></div>
+      </div>
+    </section>
+
+    <dialog id="redraw-dialog" class="redraw-dialog" aria-labelledby="redraw-title">
+      <form class="redraw-form" method="dialog">
+        <button id="redraw-close" class="redraw-close" type="button" aria-label="Schließen">×</button>
+        <div class="eyebrow"><span class="eyebrow-line"></span> DEIN STIFT. DEIN ZEICHEN.</div>
+        <h3 id="redraw-title">Noch eins, ganz in Ruhe.</h3>
+        <p class="redraw-intro">Zeichne ein fehlendes oder unsicheres Zeichen direkt hier. Wir vektorisieren deinen Stiftstrich und ergänzen eine echte Variante im Font.</p>
+        <label class="redraw-label" for="redraw-char">Zeichen auswählen</label>
+        <select id="redraw-char" class="redraw-select" aria-label="Zeichen für die zusätzliche Handschriftprobe"></select>
+        <canvas id="redraw-canvas" width="960" height="300" aria-label="Hier handschriftlich ein Zeichen zeichnen" title="Zeichne mit Maus, Touchscreen oder Tablet-Stift"></canvas>
+        <div class="redraw-canvas-hints"><span>HALTE DICH AN DIE LINIE</span><span>MAUS · TOUCH · STIFT</span></div>
+        <div id="redraw-error" class="error-box redraw-error" role="alert" hidden></div>
+        <div class="redraw-actions"><button id="clear-redraw" class="button button-quiet" type="button">Zeichen löschen</button><button id="save-redraw" class="button button-dark" type="button">Zeichen ergänzen <span aria-hidden="true">→</span></button></div>
+      </form>
+    </dialog>
+
+    <section id="how-it-works" class="how-it-works" aria-labelledby="how-title"><div class="eyebrow"><span class="eyebrow-line"></span> KLEINER BLICK HINTER DIE KULISSEN</div><h2 id="how-title">Natürlich, von Natur aus.</h2><div class="how-grid"><article class="how-card"><span class="how-number">01</span><span class="how-symbol">⌗</span><h3>Erkennt Formen.</h3><p>Der Scanner richtet dein Foto aus und trennt jeden Buchstaben automatisch aus den Vorlagenzellen.</p></article><article class="how-card"><span class="how-number">02</span><span class="how-symbol">≈</span><h3>Lässt dich prüfen.</h3><p>Jedes Zeichen bleibt korrigierbar – ändere die Zuordnung und ergänze bis zu drei natürliche Proben.</p></article><article class="how-card"><span class="how-number">03</span><span class="how-symbol">✳</span><h3>Wechselt ganz von selbst.</h3><p>Verschiedene Handschriften landen im Font als echte Kontext-Alternativen statt als Roboterklon.</p></article></div></section>
+  </main>
+
+  <footer class="site-footer"><a class="brand footer-brand" href="/" aria-label="Federwerk"><span class="brand-mark">f.</span><span>federwerk<span class="brand-period">.</span></span></a><span>Mit Handschrift geschrieben. Von dir gemacht.</span><a href="/api/template.pdf" download>Vorlage erneut herunterladen <span aria-hidden="true">↗</span></a></footer>
+  <script src="{{ url_for('static', filename='app.js') }}" defer></script>
+</body>
+</html>
